@@ -1,26 +1,193 @@
-@import "tailwindcss";
+/* global.css — Coastal Theme */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --page-background: #EAF4F6;
+  --primary-text: #355C7D;
+  --secondary-text: #5D738D;
+
+  --accent-blue: #5B9FCB;
+  --accent-softblue: #A3CEDF;
+  --accent-aqua: #91D0CA;
+  --accent-seaglass: #C8E3DC;
+  --accent-hover: #498AB0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--page-background);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  color: var(--primary-text);
+  padding: 0 40px;
+}
+
+h1, h2, h3 {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  gap: 10px;
+  
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--primary-text);
+  font-size: 18px;
+}
+
+.navbar nav a:hover {
+  color: var(--accent-hover);         /* change to coastal blue tone */
+  text-decoration: underline;         /* add underline on hover */
+  text-underline-offset: 4px;         /* slightly offset underline for style */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 20px 120px 20px;
+  text-align: center;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background-color: transparent;
+}
+
+.hero h2 {
+  font-size: 22px;
+  color: var(--primary-text);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  color: var(--primary-text);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--secondary-text);
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.hero-buttons a {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 18px;
+}
+
+/* CTA Buttons */
+.resume-btn {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.resume-btn:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(91, 159, 203, 0.3);
+}
+
+.linkedin-btn {
+  background-color: transparent;
+  color: var(--primary-text);
+  border: 2px solid var(--primary-text);
+}
+
+.linkedin-btn:hover {
+  background-color: var(--accent-blue);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Blob Positioning */
+#blob-background {
+  position: absolute;
+  top: -150px;
+  left: 10%;
+  width: 700px;
+  height: 700px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+}
+
+.blob-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+/* Contact Section */
+.contact-section {
+  padding: 100px 20px 0px;
+  text-align: center;
+}
+
+.contact-heading {
+  font-size: 24px;
+  color: var(--primary-text);
+  margin-bottom: 20px;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 36px;
+  color: var(--primary-text);
+  padding-bottom: 0;
+}
+
+.contact-icons a {
+  color: var(--primary-text);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: var(--accent-hover);
+  transform: scale(1.2);
 }
